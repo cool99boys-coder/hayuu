@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { PlayIcon, PauseIcon } from "lucide-react";
 import type { VideoItem } from "../data/story";
@@ -11,7 +11,40 @@ interface VideoFrameProps {
 export function VideoFrame({ video, index }: VideoFrameProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [playing, setPlaying] = useState(false);
+  const [optimizedSrc, setOptimizedSrc] = useState<string | undefined>();
   const hasVideo = Boolean(video.src);
+
+  const getPreferredWidth = () => {
+    try {
+      const conn = (navigator as any).connection;
+      const effective = conn?.effectiveType;
+      if (!effective) return 720;
+      if (String(effective).includes("2g")) return 360;
+      if (String(effective).includes("3g")) return 480;
+      return 720;
+    } catch (e) {
+      return 720;
+    }
+  };
+
+  const optimizeCloudinaryUrl = (src: string | undefined, width: number) => {
+    if (!src) return src;
+    try {
+      if (!src.includes("res.cloudinary.com")) return src;
+      return src.replace("/upload/", `/upload/q_auto,f_auto,w_${width}/`);
+    } catch (e) {
+      return src;
+    }
+  };
+
+  useEffect(() => {
+    if (!video.src) {
+      setOptimizedSrc(undefined);
+      return;
+    }
+    const w = getPreferredWidth();
+    setOptimizedSrc(optimizeCloudinaryUrl(video.src, w));
+  }, [video.src]);
 
   const toggle = () => {
     const el = videoRef.current;
@@ -45,7 +78,7 @@ export function VideoFrame({ video, index }: VideoFrameProps) {
               <video
                 ref={videoRef}
                 poster={video.poster}
-                src={video.src}
+                src={optimizedSrc ?? video.src}
                 className="h-full w-full object-cover"
                 playsInline
                 preload="metadata"
