@@ -43,12 +43,13 @@ export function VideoFrame({ video, index }: VideoFrameProps) {
           <div className="relative aspect-video">
             {hasVideo ?
             <video
-              ref={videoRef}
-              poster={video.poster}
-              src={video.src}
-              className="h-full w-full object-cover"
-              playsInline
-              onEnded={() => setPlaying(false)} /> :
+  ref={videoRef}
+  poster={video.poster}
+  src={video.src}
+  className="h-full w-full object-cover"
+  playsInline
+  preload="metadata"
+/> :
 
 
             <img src={video.poster} alt={video.title} className="h-full w-full object-cover" loading="lazy" />
