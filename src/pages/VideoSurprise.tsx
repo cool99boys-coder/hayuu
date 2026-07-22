@@ -10,7 +10,8 @@ import { VIDEOS } from '../data/story';
 
 export function VideoSurprise() {
   return (
-    <PageShell particleDensity={40} className="!justify-start">
+    // VideoSurprise.tsx
+<PageShell particleDensity={12} showSparkles={false} className="!justify-start">
       <div className="mx-auto w-full max-w-4xl">
         <SectionTitle
           eyebrow="Chapter V"
