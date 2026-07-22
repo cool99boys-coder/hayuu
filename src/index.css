@@ -1,0 +1,63 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+:root {
+  --gold: #d4af37;
+  --gold-light: #f5e29a;
+  --gold-deep: #a67c1a;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: #000000;
+  color: #f5e29a;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.font-display {
+  font-family: 'Cormorant Garamond', serif;
+}
+/* gold text with subtle shimmer gradient */
+.text-gold-gradient {
+  background: linear-gradient(120deg, #a67c1a 0%, #f5e29a 40%, #fff7d6 50%, #f5e29a 60%, #a67c1a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.animate-shimmer {
+  animation: shimmer 6s linear infinite;
+}
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+/* thin luxury scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #a67c1a;
+  border-radius: 8px;
+}
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: #fff7d6;
+}
