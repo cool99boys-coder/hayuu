@@ -127,22 +127,22 @@ export const VIDEOS: VideoItem[] = [
   {
     title: "Scene One — The Vibe",
     poster: "/bb6f0e79-b585-4a2a-a102-0f48240ece56.jpg",
-    src: "/VID_20260722_103639_164.mp4",
+    src: "https://res.cloudinary.com/dki39vdb6/video/upload/v1784717591/VID_20260722_121247_550_nkbdok.mp4",
   },
   {
     title: "Scene Two — The Star",
     poster: "/bb6f0e79-b585-4a2a-a102-0f48240ece56.jpg",
-    src: "/VID_20260722_121247_550.mp4",
+    src: "https://res.cloudinary.com/dki39vdb6/video/upload/v1784717744/VID_20260722_103639_164_ooeddd.mp4",
   },
   {
     title: "Scene Three — Unstoppable",
     poster: "/bb6f0e79-b585-4a2a-a102-0f48240ece56.jpg",
-    src: "/VID_20260722_121404_325.mp4",
+    src: "https://res.cloudinary.com/dki39vdb6/video/upload/v1784717839/VID_20260722_121404_325_ncp6z6.mp4",
   },
   {
     title: "Scene Four — Pure Icon",
     poster: "/bb6f0e79-b585-4a2a-a102-0f48240ece56.jpg",
-    src: "/VID_20260722_121427_844.mp4",
+    src: "https://res.cloudinary.com/dki39vdb6/video/upload/v1784717914/VID_20260722_121427_844_fjqt18.mp4",
   },
 ];
 
